@@ -2,21 +2,20 @@ import random
 
 def rps():
     print("Rock Paper Scissors")
-    rps = ["rock", "paper", "scissors"]
-    options = random.choice(rps)
-    print(options)
+    player = raw_input("Enter either r for rock, p for paper, or s for scissors \n ")
+    comp = ["rock", "paper", "scissors"]
+    options = random.choice(comp)
 
-    # player = input("Enter either \"rock\", \"paper\", or \"scissors\" ")
-    #
-    # if(player == "rock"):
-    #     #something
-    # if(player == "paper"):
-    #     #something
-    # if(player == "scissors"):
-    #     #something
-
-
-
+    if player == "r" and options == "scissors":
+        print("Computer choose \"scissors\" \n You Win!")
+    if player == "p" and options == "rock":
+        print("Computer choose \"rock\" \n You Win!")
+    if player == "s" and options == "paper":
+        print("Computer choose \"paper\" \n You Win!")
+    if((player == "r" and options == "rock") or (player == "p" and options == "paper") or (player == "s" and options == "scissors")):
+        print("It's a tie!")
+    else:
+        print ("Computer choose "+options+" You lose!")
 
 
 
@@ -36,16 +35,13 @@ def factors(n):
             mylist.append(i)
     return mylist
 
-def carlo():
-    print("sdfasdsdasdasdasdd")
-
 def error():
     print("WRONG INPUT")
 
 switch = {
     "1": rps,
     "2": number,
-    "3": carlo,
+
 }
 
 
@@ -53,11 +49,8 @@ def main():
     print("CS 299 Project 1")
     print ("1) Rock Paper Scissors Game")
     print ("2) Perfect Numbers")
-    print ("3) Monte Carlo")
     choice = input("Enter a choice: \n")
     switch.get(str(choice), error)()
-
-
 
 
 if __name__ == "__main__":
