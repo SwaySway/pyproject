@@ -1,4 +1,5 @@
 import random
+import time
 
 def rps():
     print("Rock Paper Scissors")
@@ -34,6 +35,10 @@ def factors(n):
         if n % i == 0:
             mylist.append(i)
     return mylist
+
+def mcarlo():
+    x = random.uniform()
+    print(time.time())
 
 def error():
     print("WRONG INPUT")
