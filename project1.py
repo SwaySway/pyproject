@@ -3,22 +3,27 @@ import time
 
 def rps():
     print("Rock Paper Scissors")
-    player = raw_input("Enter either r for rock, p for paper, or s for scissors \n ")
+    player = input("Enter either \"r\" for rock, \"p\" for paper, or \"s\" for scissors \n ")
     comp = ["rock", "paper", "scissors"]
     options = random.choice(comp)
 
+    if player.lower() not in ('r', 's', 'p'):
+        print("Please enter the correct input!")
+    else:
+        rps_result(player, options)
+    main()
+
+def rps_result(player, options):
     if player == "r" and options == "scissors":
-        print("Computer choose \"scissors\" \n You Win!")
+        print("Computer choose \"scissors\" \n you Win!")
     if player == "p" and options == "rock":
-        print("Computer choose \"rock\" \n You Win!")
+        print("Computer choose \"rock\" \n you Win!")
     if player == "s" and options == "paper":
-        print("Computer choose \"paper\" \n You Win!")
-    if((player == "r" and options == "rock") or (player == "p" and options == "paper") or (player == "s" and options == "scissors")):
+        print("Computer choose \"paper\" \n you Win!")
+    if(player == "r" and options == "rock") or (player == "p" and options == "paper") or (player == "s" and options == "scissors"):
         print("It's a tie!")
     else:
-        print ("Computer choose "+options+" You lose!")
-
-
+        print("Computer choose " + options + " you lose!")
 
 def number():
     num = input("Enter a number to see if it's a perfect number below: \n")
@@ -28,6 +33,9 @@ def number():
         pointer = pointer + mylist[i]
     if(pointer == num):
         print(str(num) + " is a perfect number!")
+    else:
+        print(str(num) + " is a not perfect number!")
+    main()
 
 def factors(n):
     mylist = []
@@ -35,6 +43,7 @@ def factors(n):
         if n % i == 0:
             mylist.append(i)
     return mylist
+    main()
 
 def mcarlo():
     counter = 0
@@ -48,11 +57,17 @@ def mcarlo():
         else:
             continue
     pi_estimate = 4 * counter/ntrials
-    print("Estimated Pi: " + str(pi_estimate))
-    print("Total Time taken: "+ str(time.time()))
+    print("Trials")
+    print(ntrials)
+    print("Pi Estimation")
+    print("%f" % (pi_estimate))
+    print("Time Taken")
+    print(time.time())
+    print("\n")
+    main()
 
 def error():
-    print("WRONG INPUT")
+    print("Goodbye!")
 
 switch = {
     "1": rps,
@@ -66,6 +81,7 @@ def main():
     print("1) Rock Paper Scissors Game")
     print("2) Perfect Numbers")
     print("3) Monte Carlo")
+    print("Press any other key to exit")
     choice = input("Enter a choice: \n")
     switch.get(str(choice), error)()
 
