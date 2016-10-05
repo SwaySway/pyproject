@@ -37,9 +37,19 @@ def factors(n):
     return mylist
 
 def mcarlo():
-    x = random.uniform()
-    print(time.time())
-    #added changes to monte carlo
+    counter = 0
+    ntrials = 10**6
+    for i in range (ntrials):
+        x = random.uniform(-1, 1)
+        y = random.uniform(-1, 1)
+        result = x**2 + y**2
+        if result <= 1:
+            counter += 1
+        else:
+            continue
+    pi_estimate = 4 * counter/ntrials
+    print("Estimated Pi: " + str(pi_estimate))
+    print("Total Time taken: "+ str(time.time()))
 
 def error():
     print("WRONG INPUT")
@@ -47,14 +57,15 @@ def error():
 switch = {
     "1": rps,
     "2": number,
-
+    "3": mcarlo,
 }
 
 
 def main():
     print("CS 299 Project 1")
-    print ("1) Rock Paper Scissors Game")
-    print ("2) Perfect Numbers")
+    print("1) Rock Paper Scissors Game")
+    print("2) Perfect Numbers")
+    print("3) Monte Carlo")
     choice = input("Enter a choice: \n")
     switch.get(str(choice), error)()
 
