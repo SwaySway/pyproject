@@ -39,6 +39,7 @@ def factors(n):
 def mcarlo():
     x = random.uniform()
     print(time.time())
+    #added changes to monte carlo
 
 def error():
     print("WRONG INPUT")
