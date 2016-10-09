@@ -47,8 +47,8 @@ def factors(n):
 
 def mcarlo():
     counter = 0
-    ntrials = 10**6
-    for i in range (ntrials):
+    ntrials = 10**7
+    for i in range(ntrials):
         x = random.uniform(-1, 1)
         y = random.uniform(-1, 1)
         result = x**2 + y**2
@@ -56,11 +56,11 @@ def mcarlo():
             counter += 1
         else:
             continue
-    pi_estimate = 4 * counter/ntrials
+    pi_estimate = 4 * counter/(1.0*ntrials)
     print("Trials")
     print(ntrials)
     print("Pi Estimation")
-    print("%f" % (pi_estimate))
+    print("%f" % pi_estimate)
     print("Time Taken")
     print(time.time())
     print("\n")

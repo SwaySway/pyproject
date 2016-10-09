@@ -18,7 +18,13 @@ DEFAULT_KEY = 'bpzhgocvjdqswkimlutneryaxf'
 
 plaintext = "flow"
 
-shuffled = sorted(chars, key=lambda k: random.random())
+def keyGen():
+    return sorted(chars, key=lambda k: random.random())
+
+
+def substitionEncrypt():
+
+def substitionDecrypt():
 
 key = dict(zip(chars, DEFAULT_KEY))
 
