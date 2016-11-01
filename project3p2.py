@@ -1,8 +1,8 @@
 
 
 def safe(row, column, board):
-    for row_board in board:
-        if row_board[row] == 1:
+    for column in range(len(board)):
+        if board[row][column] == 1:
             return False
     for r in range(row, 0, -1):
         for c in range(column, 0, -1):
@@ -18,11 +18,13 @@ def safe(row, column, board):
 def n_queen(n, nq, board):
     if n == nq:
         return True
-    for row in board:
+    for row in range(len(board)):
         if safe(row, n, board):
-            row[r]
-
-
+            board[row][n] = 1
+            if n_queen(n+1, nq, board):
+                return True
+            board[row][n] = 0
+    return False
 
 
 def main():
@@ -30,7 +32,7 @@ def main():
 
     if nq <= 3:
         print("There are no solutions for boards of size 3 or less")
-    elif 4 <= nq <=22:
+    elif 4 <= nq:
         board = [[0 for x in range(nq)] for x in range(nq)]
         result_nqueen = n_queen(0, nq, board)
 
@@ -39,4 +41,5 @@ def main():
     elif not result_nqueen:
         print("No Solution Found!")
 
-
+if __name__ == "__main__":
+    main()
