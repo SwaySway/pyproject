@@ -1,6 +1,7 @@
 import random
 import time
 
+
 def rps():
     print("Rock Paper Scissors")
     player = input("Enter either \"r\" for rock, \"p\" for paper, or \"s\" for scissors \n ")
@@ -13,6 +14,7 @@ def rps():
         rps_result(player, options)
     main()
 
+
 def rps_result(player, options):
     if player == "r" and options == "scissors":
         print("Computer choose \"scissors\" \n you Win!")
@@ -24,6 +26,7 @@ def rps_result(player, options):
         print("It's a tie!")
     else:
         print("Computer choose " + options + " you lose!")
+
 
 def number():
     num = input("Enter a number to see if it's a perfect number below: \n")
